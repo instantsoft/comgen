@@ -1,0 +1,2 @@
+# comgen
+InstantCMS component generator
