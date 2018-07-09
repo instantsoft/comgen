@@ -1,0 +1,4 @@
+    public function reorder{Names}($ids_list){
+        $this->reorderByList('{table}', $ids_list);
+        return true;
+    }

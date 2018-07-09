@@ -1,0 +1,27 @@
+<?php
+
+    $this->setPageTitle(${entity}['title']);
+	
+    $this->addBreadcrumb(LANG_{NAME}_CONTROLLER, $this->href_to(''));
+    $this->addBreadcrumb(LANG_{NAME}_{ENTITIES}, $this->href_to('{entities}'));
+    $this->addBreadcrumb(${entity}['title']);
+
+    $this->addToolButton(array(
+        'class' => 'edit',
+        'title' => LANG_{NAME}_EDIT_{ENTITY},
+        'href' => $this->href_to('edit_{entity}', ${entity}['id'])
+    ));
+
+    $this->addToolButton(array(
+        'class' => 'delete',
+        'title' => LANG_{NAME}_DELETE_{ENTITY},
+        'href' => $this->href_to('delete_{entity}', ${entity}['id'])
+    ));
+
+?>
+
+<h1><?php html(${entity}['title']); ?></h1>
+
+<div id="{name}-{entity}">
+{fields}
+</div>

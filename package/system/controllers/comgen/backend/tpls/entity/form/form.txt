@@ -1,0 +1,21 @@
+<?php
+class form{Component}{Name} extends cmsForm {
+
+    public function init() {
+
+        return array(
+
+            array(
+                'type' => 'fieldset',
+                'childs' => array(
+
+{fields}
+
+                )
+            )
+
+        );
+
+    }
+
+}

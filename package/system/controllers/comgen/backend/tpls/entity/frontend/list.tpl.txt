@@ -1,0 +1,31 @@
+<?php
+	
+    $this->setPageTitle(LANG_{NAME}_{ENTITIES});
+    $this->addBreadcrumb(LANG_{NAME}_CONTROLLER);
+	
+    $this->addToolButton(array(
+        'class' => 'add',
+        'title' => LANG_{NAME}_ADD_{ENTITY},
+        'href' => $this->href_to('add_{entity}')
+    ));
+
+?>
+
+<h1><?php echo LANG_{NAME}_{ENTITIES}; ?></h1>
+
+<?php if (!${entities}) { ?>
+	<p><?php echo LANG_{NAME}_{ENTITIES}_NONE; ?></p>
+	<?php return; ?>
+<?php } ?>
+
+<div id="{name}-{entities}-list">
+    <?php foreach(${entities} as ${entity}) { ?>
+        <div class="{name}-{entity} item">
+{fields}
+        </div>
+    <?php } ?>
+</div>
+	
+<?php if($total > $perpage) { ?>
+    <?php echo html_pagebar($page, $perpage, $total); ?>	
+<?php } ?>

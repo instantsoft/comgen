@@ -1,0 +1,3 @@
+    public function delete{Name}($id){
+        return $this->delete('{table}', $id);
+    }

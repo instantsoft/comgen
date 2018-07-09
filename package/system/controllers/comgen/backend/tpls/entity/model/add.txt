@@ -1,0 +1,3 @@
+    public function add{Name}(${name}){
+        return $this->insert('{table}', ${name});
+    }

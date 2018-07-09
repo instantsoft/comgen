@@ -1,0 +1,20 @@
+<?php
+
+    $this->addBreadcrumb(LANG_{NAME}_{ENTITIES}, $this->href_to('{entities}'));
+
+    if ($do == 'add') { 
+        $page_title = LANG_{NAME}_ADD_{ENTITY}; 
+    }
+
+    if ($do == 'edit') { 
+        $page_title = LANG_{NAME}_EDIT_{ENTITY}; 
+    }
+
+    $this->setPageTitle($page_title);
+    $this->addBreadcrumb($page_title);
+
+    $this->renderForm($form, ${entity}, array(
+            'action' => '',
+            'method' => 'post',
+            'toolbar' => false
+    ), $errors);

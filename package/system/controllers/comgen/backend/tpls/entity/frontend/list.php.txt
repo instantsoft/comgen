@@ -1,0 +1,29 @@
+<?php
+
+class action{Name}{Entities} extends cmsAction {
+	
+    public function run(){
+
+        $page = $this->request->get('page', 1);		
+        $perpage = 15;
+
+        $template = cmsTemplate::getInstance();
+
+        $total = $this->model->get{Entities}Count();
+
+        $this->model->limitPage($page, $perpage);
+
+        $this->model->orderBy('id', 'desc');
+
+        ${entities} = $this->model->get{Entities}();
+
+        return $template->render('{entities}', array(
+            '{entities}' => ${entities},
+            'total' => $total,
+            'page' => $page,
+            'perpage' => $perpage
+        ));
+
+    }
+	
+}

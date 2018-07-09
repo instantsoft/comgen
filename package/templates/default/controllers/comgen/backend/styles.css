@@ -1,0 +1,33 @@
+#f_types label { display: block; }
+
+.cg-field {
+    padding: 10px 15px 5px 15px;
+    border-radius: 4px;
+    border: solid 1px #B3C2C9;
+    margin-bottom: 12px;
+}
+.cg-field .row {
+  overflow:hidden;
+  margin-bottom:5px;
+}
+.cg-field .row .prop{
+  float:left;
+  margin-right:10px
+}
+.cg-field .row .prop .input,
+.cg-field .row .prop select {
+  width:200px
+}
+.cg-field .row .prop .input.name,
+.cg-field .row .prop select.type {
+  width:120px
+}
+.cg-field .row .prop .checkbox{
+  float:left;
+  vertical-align:middle;
+  padding-right:10px;
+}
+.cg-field .btn-remove-field{
+    float:right;
+    color:#D14840;
+}

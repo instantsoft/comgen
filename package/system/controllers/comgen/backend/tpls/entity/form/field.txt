@@ -1,0 +1,4 @@
+                    new field{Type}('{name}', array(
+                        'title' => {title_lang},
+{params}
+                    )),

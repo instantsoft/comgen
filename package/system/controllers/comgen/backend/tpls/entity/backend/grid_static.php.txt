@@ -1,0 +1,46 @@
+<?php
+
+function grid_{entities}($controller){
+
+    $options = array(
+        'is_auto_init' => true,
+        'is_sortable' => true,
+        'is_filter' => true,
+        'is_pagination' => true,
+        'is_draggable' => false,
+        'is_selectable' => false,
+        'order_by' => 'id',
+        'order_to' => 'desc',
+        'show_id' => true
+    );
+
+    $columns = array(
+        'id' => array(
+            'title' => 'id',
+            'width' => 30,
+        ),
+{fields}
+    );
+
+    $actions = array(
+        array(
+            'title' => LANG_EDIT,
+            'class' => 'edit',
+            'href' => href_to($controller->root_url, 'edit_{entity}', array('{id}')),
+        ),
+        array(
+            'title' => LANG_DELETE,
+            'class' => 'delete',
+            'href' => href_to($controller->root_url, 'delete_{entity}', array('{id}')),
+            'confirm' => LANG_{NAME}_DELETE_{ENTITY}_CONFIRM,
+        )
+    );
+
+    return array(
+        'options' => $options,
+        'columns' => $columns,
+        'actions' => $actions
+    );
+
+}
+

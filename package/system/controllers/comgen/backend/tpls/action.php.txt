@@ -1,0 +1,13 @@
+<?php
+
+class action{Name}{Action} extends cmsAction{
+
+    public function run(){
+
+{params}       
+
+{result}
+
+    }
+
+}

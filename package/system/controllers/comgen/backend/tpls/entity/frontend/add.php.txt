@@ -1,0 +1,41 @@
+<?php
+
+class action{Name}Add{Entity} extends cmsAction {
+	
+    public function run(){
+
+        $errors = false;
+
+        $form = $this->getForm('{form}');
+
+        $is_submitted = $this->request->has('submit');
+
+        ${entity} = $form->parse($this->request, $is_submitted);
+
+        if ($is_submitted){
+
+            $errors = $form->validate($this, ${entity});
+
+            if (!$errors){
+                ${entity}_id = $this->model->add{Entity}(${entity});
+                $this->redirectToAction('{entity}', array(${entity}_id));
+            }
+
+            if ($errors){
+                cmsUser::addSessionMessage(LANG_FORM_ERRORS, 'error');
+            }
+
+        }
+
+        $template = cmsTemplate::getInstance();
+
+        return $template->render('form_{entity}', array(
+            'do' => 'add',
+            'form' => $form,
+            'errors' => $errors,
+            '{entity}' => ${entity}
+        ));
+
+    }
+	
+}

@@ -1,0 +1,6 @@
+    public function getBackendMenu(){
+        return array(
+{items}
+            /*{comgen-backend-menu}*/
+        );
+    }

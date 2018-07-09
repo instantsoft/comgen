@@ -1,0 +1,36 @@
+<?php
+
+class action{Name}{Entities}Ajax extends cmsAction {
+
+    public function run(){
+
+        if (!$this->request->isAjax()) { cmsCore::error404(); }
+
+        $grid = $this->loadDataGrid('{entities}');
+
+        $model = cmsCore::getModel($this->name);
+ 
+        $model->setPerPage(admin::perpage);
+ 
+        $filter = array(); 
+        $filter_str = $this->request->get('filter', ''); 
+        $filter_str = cmsUser::getUPSActual('{name}.{entities}_list', $filter_str);
+ 
+        if ($filter_str){
+            parse_str($filter_str, $filter);
+            $model->applyGridFilter($grid, $filter);
+        }
+
+        $total = $model->get{Entities}Count(); 
+        $perpage = isset($filter['perpage']) ? $filter['perpage'] : admin::perpage; 
+        $pages = ceil($total / $perpage);
+
+        ${entities} = $model->get{Entities}();
+
+        cmsTemplate::getInstance()->renderGridRowsJSON($grid, ${entities}, $total, $pages);
+
+        $this->halt();
+
+    }
+
+}

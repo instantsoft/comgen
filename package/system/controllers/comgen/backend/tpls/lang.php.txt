@@ -1,0 +1,4 @@
+<?php
+
+    define('LANG_{NAME}_CONTROLLER', '{title}');
+    

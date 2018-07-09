@@ -1,0 +1,3 @@
+    public function update{Name}($id, ${name}){
+        return $this->update('{table}', $id, ${name});
+    }

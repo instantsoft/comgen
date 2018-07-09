@@ -1,0 +1,23 @@
+<?php
+
+class action{Name}{Entity} extends cmsAction {
+	
+    public function run($id = false){
+
+        if (!$id) { cmsCore::error404(); }
+
+        ${entity} = $this->model->get{Entity}($id);
+
+        if (!${entity}) { cmsCore::error404(); }
+
+        $user = cmsUser::getInstance();
+
+        $template = cmsTemplate::getInstance();
+
+        return $template->render('{entity}', array(
+            '{entity}' => ${entity},
+        ));
+
+    }
+	
+}

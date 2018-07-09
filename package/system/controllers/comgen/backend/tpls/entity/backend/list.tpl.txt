@@ -1,0 +1,24 @@
+<?php
+
+    $this->addBreadcrumb(LANG_{NAME}_{ENTITIES});
+
+    $this->addToolButton(array(
+        'class' => 'add',
+        'title' => LANG_{NAME}_ADD_{ENTITY},
+        'href'  => $this->href_to('add_{entity}')
+    ));
+
+    $this->addToolButton(array(
+        'class' => 'save',
+        'title' => LANG_SAVE,
+        'href'  => null,
+        'onclick' => "icms.datagrid.submit('{$this->href_to('{entities}_reorder')}')"
+    ));
+
+?>
+
+<?php $this->renderGrid($this->href_to('{entities}_ajax'), $grid); ?>
+
+<div class="buttons">
+    <?php echo html_button(LANG_SAVE_ORDER, 'save_button', "icms.datagrid.submit('{$this->href_to('{entities}_reorder')}')"); ?>
+</div>

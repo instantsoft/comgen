@@ -1,0 +1,7 @@
+<?php
+
+class model{Name} extends cmsModel {
+    
+    /*{comgen-model-methods}*/
+    
+}

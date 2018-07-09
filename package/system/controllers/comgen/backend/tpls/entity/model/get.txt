@@ -1,0 +1,3 @@
+    public function get{Name}($id){
+        return $this->getItemById('{table}', $id);
+    }

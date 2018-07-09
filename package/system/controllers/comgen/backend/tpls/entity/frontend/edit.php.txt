@@ -1,0 +1,53 @@
+<?php
+
+class action{Name}Edit{Entity} extends cmsAction {
+	
+    public function run($id=false){
+
+        if (!$id) { cmsCore::error404(); }
+
+        ${entity} = $this->model->get{Entity}($id);
+
+        if (!${entity}) { cmsCore::error404(); }
+
+        $user = cmsUser::getInstance();
+
+        $is_can_edit = true;
+
+        if (!$is_can_edit) { cmsCore::error404(); }
+
+        $errors = false;
+
+        $form = $this->getForm('{form}');
+
+        $is_submitted = $this->request->has('submit');				
+
+        if ($is_submitted){
+
+            ${entity} = $form->parse($this->request, $is_submitted);
+
+            $errors = $form->validate($this, ${entity});
+
+            if (!$errors){
+                $this->model->update{Entity}($id, ${entity});
+                $this->redirectToAction('{entity}', array($id));
+            }
+
+            if ($errors){
+                cmsUser::addSessionMessage(LANG_FORM_ERRORS, 'error');
+            }
+
+        }
+
+        $template = cmsTemplate::getInstance();
+
+        return $template->render('form_{entity}', array(
+            'do' => 'edit',
+            'form' => $form,
+            'errors' => $errors,
+            '{entity}' => ${entity}
+        ));
+
+    }
+	
+}

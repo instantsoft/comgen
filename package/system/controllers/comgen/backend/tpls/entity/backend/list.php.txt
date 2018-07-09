@@ -1,0 +1,15 @@
+<?php
+
+class action{Name}{Entities} extends cmsAction {
+
+    public function run(){
+
+        $grid = $this->loadDataGrid('{entities}');
+
+        return cmsTemplate::getInstance()->render('backend/{entities}', array(
+            'grid' => $grid
+        ));
+
+    }
+
+}

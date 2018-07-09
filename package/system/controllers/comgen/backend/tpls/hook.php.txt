@@ -1,0 +1,11 @@
+<?php
+
+class on{Name}{Hook} extends cmsAction {
+
+    public function run($data){
+
+        return $data;
+
+    }
+
+}

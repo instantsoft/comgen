@@ -1,0 +1,3 @@
+    public function get{Names}Count(){
+        return $this->getCount('{table}');
+    }

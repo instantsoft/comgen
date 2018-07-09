@@ -1,0 +1,4 @@
+            array(
+                'title' => {title},
+                'url' => href_to($this->root_url, '{action}')
+            ),

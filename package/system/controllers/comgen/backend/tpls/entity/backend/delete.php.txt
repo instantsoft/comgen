@@ -1,0 +1,21 @@
+<?php
+
+class action{Name}Delete{Entity} extends cmsAction {
+	
+    public function run($id=false){
+
+        if (!$id) { cmsCore::error404(); }
+
+        $model = cmsCore::getModel($this->name);
+
+        ${entity} = $model->get{Entity}($id);
+
+        if (!${entity}) { cmsCore::error404(); }
+
+        $model->delete{Entity}($id);
+
+        $this->redirectToAction('{entities}');
+
+    }
+
+}

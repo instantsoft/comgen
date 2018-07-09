@@ -1,0 +1,4 @@
+        '{name}' => array(
+            'title' => {title_lang},
+            'href' => href_to($controller->root_url, 'edit_{entity}', array('{id}')),
+        ),
