@@ -1,10 +1,14 @@
 <?php
 
 class action{Name}Delete{Entity} extends cmsAction {
-	
-    public function run($id=false){
+
+    public function run($id = false){
 
         if (!$id) { cmsCore::error404(); }
+
+        if (!cmsForm::validateCSRFToken( $this->request->get('csrf_token', '') )){
+            cmsCore::error404();
+        }
 
         $model = cmsCore::getModel($this->name);
 
